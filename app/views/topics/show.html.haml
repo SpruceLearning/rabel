@@ -29,7 +29,6 @@
       ,
       = @topic.hit
       次浏览
-    .clearfix
   .inner.content.topic_content
     = format_topic(@topic.content)
   .cell
@@ -42,7 +41,6 @@
       .pull-left
         %span.guillemet.left-guillemet «
         = link_to proper_length(@prev_topic.title, 15), t_path(@prev_topic.id), :class => :rabel, :rel => :next
-    .clearfix
   .inner
     .pull-right
       - if user_signed_in?
@@ -52,7 +50,6 @@
           = link_to '加入收藏', topic_bookmarks_path(@topic), :method => :post, :class => 'btn btn-mini bookmark'
     - @topic.nodes.each do |node|
       = link_to node.name, go_path(node.key), :class => 'rabel item_node'
-    .clearfix
 
 = render 'topics/show/comments' if @comments.any?
 

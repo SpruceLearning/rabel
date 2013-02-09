@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    = render 'shared/meta'
+    = stylesheet_link_tag  'application', :media => 'all'
+    = yield :head
+    - if Siteconf.custom_css.present?
+      style type='text/css' = Siteconf.custom_css.html_safe
+    = javascript_include_tag 'application'
+    link rel='apple-touch-icon' href='/apple-touch-icon.png'
+
+    = yield :final_head
+  body#rabel class=@css_body_class
+    #header
+      .navbar.navbar-static-top
+        .navbar-inner
+          .container
+            a.btn.btn-navbar.collapsed(data-toggle='collapse' data-target='.nav-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+            = link_to Siteconf.site_name, root_path, :class => :brand
+
+            ul.nav
+              = nav_item(t(:homepage), root_path)
+              - if user_signed_in?
+                - if current_user.can_manage_site?
+                  = nav_item t(:dashboard), admin_root_path
+              - else
+                = nav_item(t(:sign_in), new_user_session_path)
+
+            .nav-collapse.collapse
+              - if user_signed_in?
+                form.navbar-search.pull-left
+                  input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Settings.canonical_host placeholder=t(:search)
+                ul.nav.pull-right
+                  = nav_item current_user.nickname, member_path(url_encode(current_user.nickname))
+                  = nav_item t(:account_settings), settings_path
+                  li.divider-vertical
+                  li= link_to t(:sign_out), destroy_user_session_path, :method => :delete
+              - else
+                form.navbar-search.pull-right
+                  input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Settings.canonical_host placeholder=t(:search)
+
+    #container-wrapper
+      .container
+        #content-wrapper
+          #content
+            = yield :content
+          #plus
+            = yield :sidebar
+
+    = render 'shared/footer'
+

@@ -8,6 +8,8 @@ class WelcomeController < ApplicationController
     @seo_description = Siteconf.seo_description
     @current_nav_item = t(:homepage)
 
+    @css_body_class = 'home'
+
     respond_to do |format|
       format.html
     end
