@@ -1,13 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 ruby "1.9.3"
 
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
 gem 'pg'
-# gem 'mysql2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -79,4 +75,3 @@ gem 'slim-rails', '~> 1.0.3'
 gem 'simple_form', '~> 2.0.4'
 gem 'foreman', '~> 0.61.0'
 gem 'thin', '~> 1.5.0'
-
