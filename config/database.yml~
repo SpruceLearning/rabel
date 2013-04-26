@@ -16,7 +16,7 @@ development:
   adapter: postgresql
   host: localhost
   database: rabel_development
-  username: postgres
+  username: ge
   password: sprucelearning
 
 # Warning: The database defined as "test" will be erased and
@@ -24,18 +24,13 @@ development:
 # Do not set this db to the same as development or production.
 test:
   database: rabel_test
-  username: postgresql
+  username: ge
   password: sprucelearning
 
 production:
   adapter: postgresql
-  host: 127.0.0.1
+  host: ec2-54-225-84-29.compute-1.amazonaws.com
   port: 5432
-  database: rabel_production
-  username: postgres
-  password: sprucelearning
-#  host: ec2-54-225-84-29.compute-1.amazonaws.com
-#  port: 5432
-#  database: d2k9u6vgggmdr5
-#  username: ytpvuxebtcnwju
-#  password: kOgDOQQsSYFJoYShqC2CSZoG5z
+  database: d2k9u6vgggmdr5
+  username: ytpvuxebtcnwju
+  password: kOgDOQQsSYFJoYShqC2CSZoG5z
