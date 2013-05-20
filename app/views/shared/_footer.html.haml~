@@ -6,7 +6,7 @@
       = Siteconf.footer.html_safe
     %small.muted
       Powered by
-      = link_to 'Rabel', 'http://rabelapp.com', :target => '_blank', :class => :muted
+      = link_to '杉景教育科技', 'http://www.sprucelearning.com', :target => '_blank', :class => :muted
       = Rabel.version
 
 = render 'shared/google_analytics'
